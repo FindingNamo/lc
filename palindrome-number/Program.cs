@@ -16,10 +16,8 @@ namespace palindrome_number
             var m = GetMagnitude (x);
 
             for (int i = 0; i <= m/2; i++) {
-                var leftMag = (int)Math.Pow(10,m-i);
-                var leftMost = (x / leftMag) % 10;
-                var rightMag = (int)Math.Pow(10,i);
-                var rightMost = (x / rightMag) % 10;
+                var leftMost = (x / (int)Math.Pow(10,m-i)) % 10;
+                var rightMost = (x / (int)Math.Pow(10,i)) % 10;
 
                 if (leftMost != rightMost)
                     return false;
