@@ -23,7 +23,32 @@ namespace letter_combinations_of_a_phone_number {
         };
 
         public IList<string> LetterCombinations (string digits) {
-            return BruteForce (digits);
+            return UsingQueue(digits).ToList();
+        }
+
+        private IEnumerable<string> UsingQueue (string digits) {
+            var queue = new Queue<string>();
+            var charCount = 1;
+
+            foreach (char d in digits) {
+                if (queue.Count == 0) {
+                    foreach (string s in characterMap[d]) {
+                        queue.Enqueue($"{s}");
+                    }
+                } else {
+                    charCount++;
+                    while(queue.Peek().Length < charCount) {
+                        var existingResult =  queue.Dequeue();
+                        foreach (string s in characterMap[d]) {
+                            queue.Enqueue($"{existingResult}{s}");
+                        }
+                    }
+                }
+            }
+
+            while (queue.Count > 0){
+                yield return queue.Dequeue();
+            }
         }
 
         private IList<string> BruteForce (string digits) {
