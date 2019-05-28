@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/maximum-size-subarray-sum-equals-k.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace maximum_size_subarray_sum_equals_k {
     class Program {
         static void Main (string[] args) {
             Console.WriteLine ("Hello World!");
-            new Solution ().MaxSubArrayLen (new int[] {-1, 1 }, 1);
+            new Solution ().MaxSubArrayLen (new int[] {1, -1, 5, -2, 3 }, 3);
         }
     }
 
